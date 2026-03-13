@@ -23,11 +23,14 @@ app.set("public", __dirname + ['/public',
     '/public/src',
 ]);
 
+app.use(function(req,res,next){
+    res.locals.errors = []
+    next()
+})
 
 // Routes and other modules
 const Wb = require("./routes/main_rts");
 app.use(Wb);
-
 
 
 // Calling of the server
